@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: springboot-rabbitmq-sender
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: zzx
+    password: zzx
+    connection-timeout: 2000ms
+    #生产者确认消息  confirmListener
+    publisher-confirms: true
+    #消息未被消费则原封不动返回，不被处理  returnListener  和 mandatory 配合使用
+    publisher-returns: true
+    #设置手动确认消息
+    listener:
+      simple:
+        acknowledge-mode: manual
+    #支持消息重试
+        retry:
+          enabled: true
+server:
+  port: 8090
