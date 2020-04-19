@@ -1,12 +1,9 @@
 package com.zzx.collection.io;
 
 import cn.hutool.core.io.FileUtil;
-import com.google.common.base.Joiner;
-import com.google.common.collect.Lists;
-import com.sun.media.jfxmedia.logging.Logger;
+
 import org.junit.Test;
 
-import javax.sound.midi.Soundbank;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -102,10 +99,13 @@ public class FileTest {
      */
     @Test
     public void testFileWrite() throws IOException {
-        FileWriter fileWriter = new FileWriter("E:/myfile/mynote.txt",true);
+        FileUtil.mkdir("E:/myfile");
+        File file = new File("E:/myfile/mynote.txt");
+        FileWriter fileWriter = new FileWriter(file,true);
        // fileWriter.write("hello word");
         fileWriter.append("hello ").append("word ").append(" java");
         System.out.println(fileWriter.getEncoding());
+        fileWriter.flush();
         fileWriter.close();
     }
 
@@ -152,6 +152,19 @@ public class FileTest {
         System.out.println(file.getParent());
         System.out.println(file.getAbsolutePath());
         System.out.println(file.getName());
+    }
+
+    @Test
+    public void testFileMkdir(){
+        File file = new File("D:/parent/son/mm");
+        FileUtil.mkdir(file);
+    }
+
+
+    @Test
+    public void testFileMove(){
+        // FileUtil.move(new File("D:/parent/1.txt"),new File("D:/parent/keyStore"),true);
+        FileUtil.move(new File("D:/parent/2.txt"),new File("D:/parent/keyStore"),true);
     }
 
 }

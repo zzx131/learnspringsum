@@ -94,3 +94,26 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+learnspring.iml
+springboot-basedemo/springboot-basedemo.iml
+springboot-basedemo/src/main/resources/static/
+springboot-basedemo/src/main/resources/templates/
+springboot-basedemo/src/test/
+springboot-gencode/springboot-gencode.iml
+springboot-gencode/src/main/java/com/zzx/springbootgencode/exception/
+springboot-java/springboot-java.iml
+springboot-java/src/main/
+springboot-jpa/springboot-jpa.iml
+springboot-mongo/springboot-mongo.iml
+springboot-mybatisplus/springboot-mybatisplus.iml
+springboot-poi/springboot-poi.iml
+springboot-rabbitmq/springboot-rabbitmq.iml
+springboot-rabbitmq/src/main/resources/static/
+springboot-rabbitmq/src/main/resources/templates/
+springboot-shiro/springboot-shiro.iml
+springboot-shiro/src/main/java/com/zzx/shiro/dao/
+springboot-shiro/src/main/resources/static/
+springboot-shiro/src/main/resources/templates/
+springboot-basedemo/target/classes/application.yml
+springboot-basedemo/target/generated-sources/
+springboot-java/target/generated-test-sources/

@@ -2,6 +2,7 @@ package com.zzx.springbootbasedemo.controller;
 
 import com.zzx.springbootbasedemo.model.Foo;
 import com.zzx.springbootbasedemo.model.FooParent;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author: zhangzexin
  */
 @RestController
+@Slf4j
 public class FooController {
 
     @GetMapping("/foo")
     public String foo(@Validated Foo foo, BindingResult bindingResult){
+        log.info("hhhhhhhhhnnn");
         if (bindingResult.hasErrors()){
             for (FieldError fieldError: bindingResult.getFieldErrors()){
                 System.out.println(fieldError.toString());
@@ -27,6 +30,7 @@ public class FooController {
             }
             return "fail";
         }
+        log.info("gggg");
         return "success";
     }
 
