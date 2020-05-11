@@ -2,6 +2,11 @@ server:
   port: 8081
   servlet:
     context-path: /@artifactId@
+  ssl:
+    key-alias: server
+    key-store: classpath:certificate/server.jks
+    key-store-type: jks
+    key-store-password: 123456
 spring:
   application:
     name: springboot-basedemo
@@ -9,3 +14,5 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
+
+keyStorePath: mmasdf
