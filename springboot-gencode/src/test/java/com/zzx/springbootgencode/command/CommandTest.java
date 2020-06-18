@@ -13,7 +13,7 @@ import org.thymeleaf.templateresolver.StringTemplateResolver;
 public class CommandTest {
 
     @Test
-    public void testCommand(){
+    public void testCommand() {
         Command command = new GenVoCommand();
         SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
         IDialect dialect = new SpringStandardDialect();
@@ -24,6 +24,6 @@ public class CommandTest {
         resolverText.setTemplateMode(TemplateMode.TEXT);
         // 添加解析器
         springTemplateEngine.addTemplateResolver(resolverText);
-        command.execute(MetaData.getTableInfo("mysql_persons",new TypeMapping()),springTemplateEngine,new ConsoleOutput());
+        command.execute(MetaData.getTableInfo("mysql_persons", new TypeMapping()), springTemplateEngine, new ConsoleOutput());
     }
 }

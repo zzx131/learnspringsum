@@ -13,23 +13,23 @@ import java.util.Map;
  */
 public class AnnotationUtil {
 
-   /**
-   * @description: 检查注解isLike
-   * @author: zhangzexin
-   * @date: 2020/3/31  21:51
-   * @param model:
-   * @return: java.util.List<java.util.Map<java.lang.String,java.lang.Object>>
-   **/
-    public static  <T> List<Map<String, Object>> checkLikeFild(T model) {
-        List<Map<String,Object>> result = new ArrayList<>();
+    /**
+     * @param model:
+     * @description: 检查注解isLike
+     * @author: zhangzexin
+     * @date: 2020/3/31  21:51
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
+     **/
+    public static <T> List<Map<String, Object>> checkLikeFild(T model) {
+        List<Map<String, Object>> result = new ArrayList<>();
 
         Field[] declaredFields = model.getClass().getDeclaredFields();
         for (Field declaredField : declaredFields) {
             IsLike annotation = declaredField.getAnnotation(IsLike.class);
             if (null != annotation) {
-                Map<String,Object> oneData = new HashMap<>();
-                oneData.put("fildName",declaredField.getName());
-                oneData.put("value",annotation.value());
+                Map<String, Object> oneData = new HashMap<>();
+                oneData.put("fildName", declaredField.getName());
+                oneData.put("value", annotation.value());
 
                 result.add(oneData);
             }

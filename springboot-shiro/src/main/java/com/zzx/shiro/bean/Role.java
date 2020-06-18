@@ -10,7 +10,7 @@ public class Role {
      */
     private Set<Permissions> permissions;
 
-    public Role(String id,String roleName,Set<Permissions> permissions){
+    public Role(String id, String roleName, Set<Permissions> permissions) {
         this.id = id;
         this.roleName = roleName;
         this.permissions = permissions;

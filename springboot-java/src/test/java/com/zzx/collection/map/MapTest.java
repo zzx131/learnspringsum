@@ -8,11 +8,11 @@ import java.util.function.BiFunction;
 
 public class MapTest {
     @Test
-    public void testMap(){
+    public void testMap() {
         HashMap map = new HashMap();
-        map.put(1,"zzx");
-        map.put(2,"lishi");
-        map.put(3,"wangwu");
+        map.put(1, "zzx");
+        map.put(2, "lishi");
+        map.put(3, "wangwu");
 
         Set set = map.entrySet();
         Set key = map.keySet();

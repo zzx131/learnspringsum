@@ -22,10 +22,11 @@ public class TopicConfig {
     public Queue queueTopicB() {
         return new Queue("queueTopicB");
     }
+
     // 创建交换机
     @Bean
     public TopicExchange topicExchange() {
-        return  new TopicExchange("topicExchange");
+        return new TopicExchange("topicExchange");
     }
 
     // 将队列绑定到交换机上

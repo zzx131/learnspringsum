@@ -17,36 +17,36 @@ public class ReflectUtilTest {
     }
 
     @Test
-    public void testReflectUtilTest(){
-        Method setA = ReflectUtil.getMethod(ReflectUtilTest.class, "setA",Integer.class);
+    public void testReflectUtilTest() {
+        Method setA = ReflectUtil.getMethod(ReflectUtilTest.class, "setA", Integer.class);
         System.out.println(setA.getName());
     }
 
     public static void main(String[] args) {
-        ReflectUtilTest  reflectUtilTest = new ReflectUtilTest();
+        ReflectUtilTest reflectUtilTest = new ReflectUtilTest();
         reflectUtilTest.testSecurityException();
         reflectUtilTest.testExecption();
     }
 
-    public void testA(){
-        ReflectUtilTest  reflectUtilTest = new ReflectUtilTest();
+    public void testA() {
+        ReflectUtilTest reflectUtilTest = new ReflectUtilTest();
         reflectUtilTest.testSecurityException();
         reflectUtilTest.testExecption();
         reflectUtilTest.testb();
     }
 
-    public void testSecurityException() throws SecurityException{
-        int i = 1/0;
+    public void testSecurityException() throws SecurityException {
+        int i = 1 / 0;
         System.out.println("抛出异常");
     }
 
-    public void testExecption() throws ArrayIndexOutOfBoundsException{
+    public void testExecption() throws ArrayIndexOutOfBoundsException {
         int[] arr = new int[3];
         System.out.println(arr[5]);
     }
 
-    public void testb(){
-        int j = 10/0;
+    public void testb() {
+        int j = 10 / 0;
         throw new RuntimeException();
     }
 }

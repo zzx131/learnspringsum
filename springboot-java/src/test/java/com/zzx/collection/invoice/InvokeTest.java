@@ -20,17 +20,17 @@ public class InvokeTest {
     }*/
 
     @Test
-    public void testInvokeImp(){
+    public void testInvokeImp() {
         RoleMapper roleMapper = new RoleMapperImp();
         RoleMapperProxy roleMapperProxy = new RoleMapperProxy(roleMapper);
         // RoleMapper o = (RoleMapper)Proxy.newProxyInstance(roleMapper.getClass().getClassLoader(), roleMapper.getClass().getInterfaces(), roleMapperProxy);
-        RoleMapper o = (RoleMapper)roleMapperProxy.CreatProxyedObjImp();
+        RoleMapper o = (RoleMapper) roleMapperProxy.CreatProxyedObjImp();
         o.getRoles();
     }
 
     @Test
-    public  void testHello() {
-       // System.getProperties().setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+    public void testHello() {
+        // System.getProperties().setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         HelloInterface hello = new Hello();
         InvocationHandler handler = new ProxyHandler(hello);
         HelloInterface proxyHello = (HelloInterface) Proxy.newProxyInstance(hello.getClass().getClassLoader(), hello.getClass().getInterfaces(), handler);

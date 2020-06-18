@@ -7,6 +7,11 @@ server:
     key-store: classpath:certificate/server.jks
     key-store-type: jks
     key-store-password: 123456
+    trust-store: classpath:certificate/trustCa.jks
+    trust-store-password: 123456
+    trust-store-type: jks
+    client-auth: need
+    trust-store-provider: SUN
 spring:
   application:
     name: springboot-basedemo

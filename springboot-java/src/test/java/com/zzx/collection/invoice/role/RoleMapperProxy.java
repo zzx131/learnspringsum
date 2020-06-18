@@ -42,6 +42,6 @@ public class RoleMapperProxy implements InvocationHandler {
     }*/
 
     public Object CreatProxyedObjImp() {
-         return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
     }
 }

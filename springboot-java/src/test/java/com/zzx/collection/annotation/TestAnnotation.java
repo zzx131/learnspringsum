@@ -13,12 +13,12 @@ import java.util.Map;
  */
 public class TestAnnotation {
 
-    public void testAnnotation(Mode mode){
+    public void testAnnotation(Mode mode) {
         // 获取类中的字段
         Field[] declaredFields = mode.getClass().getDeclaredFields();
         for (Field declaredField : declaredFields) {
             IsLike annotation = declaredField.getAnnotation(IsLike.class);
-            if (null != annotation){
+            if (null != annotation) {
                 Boolean value = annotation.value();
                 System.out.println(value);
                 System.out.println(declaredField.getName());
@@ -27,7 +27,7 @@ public class TestAnnotation {
     }
 
     @Test
-    public void testMain(){
+    public void testMain() {
         List<Map<String, Object>> maps = AnnotationUtil.checkLikeFild(new Mode());
         System.out.println(maps.toString());
     }

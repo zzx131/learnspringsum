@@ -11,12 +11,13 @@ import java.util.Map;
 
 public class SingleCommand extends Command {
     protected CodeTemplate codeTemplate;
+
     @Override
     public void execute(Table tableInfo, SpringTemplateEngine springTemplateEngine, CodeOutput codeOutput) {
         Map map = BeanUtil.beanToMap(tableInfo);
         Context context = new Context();
         context.setVariables(map);
         String result = springTemplateEngine.process(codeTemplate.read(), context);
-        codeOutput.out(tableInfo,result,codeTemplate);
+        codeOutput.out(tableInfo, result, codeTemplate);
     }
 }

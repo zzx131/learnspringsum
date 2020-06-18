@@ -22,6 +22,7 @@ public class SenderConfig {
 
     /**
      * direct 模式
+     *
      * @return
      */
     @Bean
@@ -31,34 +32,38 @@ public class SenderConfig {
 
     /**
      * work 模式
+     *
      * @return
      */
     @Bean
-    public Queue workQueue(){
+    public Queue workQueue() {
         return new Queue("workQueue");
     }
     // ---------------------fanout模式-------------------------------------
+
     /**
      * fanout模式设置队列
+     *
      * @return
      */
-    @Bean(name="Amessage")
+    @Bean(name = "Amessage")
     public Queue AMessage() {
         return new Queue("fanout.A");
     }
 
-    @Bean(name="Bmessage")
+    @Bean(name = "Bmessage")
     public Queue BMessage() {
         return new Queue("fanout.B");
     }
 
-    @Bean(name="Cmessage")
+    @Bean(name = "Cmessage")
     public Queue CMessage() {
         return new Queue("fanout.C");
     }
 
     /**
      * 配置fanout模式的交换机
+     *
      * @return
      */
     @Bean
@@ -68,17 +73,19 @@ public class SenderConfig {
 
     /**
      * 将Amessage 队列绑定到fanoutExchange中
+     *
      * @param AMessage
      * @param fanoutExchange
      * @return
      */
     @Bean
-    Binding bindingExchangeA(@Qualifier("Amessage") Queue AMessage,FanoutExchange fanoutExchange) {
+    Binding bindingExchangeA(@Qualifier("Amessage") Queue AMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(AMessage).to(fanoutExchange);
     }
 
     /**
      * 将Bmessage 队列绑定到fanoutExchange中
+     *
      * @param BMessage
      * @param fanoutExchange
      * @return
@@ -89,7 +96,8 @@ public class SenderConfig {
     }
 
     /**
-     *  将CMessage 队列绑定到fanoutExchange 中
+     * 将CMessage 队列绑定到fanoutExchange 中
+     *
      * @param CMessage
      * @param fanoutExchange
      * @return
@@ -101,7 +109,7 @@ public class SenderConfig {
 
     //----------------------------------------------
     @Bean
-    public RabbitTemplate rabbitTemplate(){
+    public RabbitTemplate rabbitTemplate() {
         //若使用confirm-callback ，必须要配置publisherConfirms 为true
         connectionFactory.setPublisherConfirms(true);
         //若使用return-callback，必须要配置publisherReturns为true
@@ -111,23 +119,23 @@ public class SenderConfig {
         rabbitTemplate.setMandatory(true);
 
         // 如果消息没有到exchange,则confirm回调,ack=false; 如果消息到达exchange,则confirm回调,ack=true
-        rabbitTemplate.setConfirmCallback((CorrelationData correlationData, boolean ack, String cause)->{
-                if(ack){
-                    log.info("消息发送成功到交换机中:correlationData({}),ack({}),cause({})",correlationData,ack,cause);
-                }else{
-                    log.info("消息发送失败到交换机:correlationData({}),ack({}),cause({})",correlationData,ack,cause);
-                }
+        rabbitTemplate.setConfirmCallback((CorrelationData correlationData, boolean ack, String cause) -> {
+            if (ack) {
+                log.info("消息发送成功到交换机中:correlationData({}),ack({}),cause({})", correlationData, ack, cause);
+            } else {
+                log.info("消息发送失败到交换机:correlationData({}),ack({}),cause({})", correlationData, ack, cause);
+            }
         });
 
         //如果exchange到queue成功,则不回调return;如果exchange到queue失败,则回调return(需设置mandatory=true,否则不回回调,消息就丢了)
-        rabbitTemplate.setReturnCallback((Message message, int replyCode, String replyText, String exchange, String routingKey)->{
-            log.info("消息丢失:exchange({}),route({}),replyCode({}),replyText({}),message:{}",exchange,routingKey,replyCode,replyText,message);
+        rabbitTemplate.setReturnCallback((Message message, int replyCode, String replyText, String exchange, String routingKey) -> {
+            log.info("消息丢失:exchange({}),route({}),replyCode({}),replyText({}),message:{}", exchange, routingKey, replyCode, replyText, message);
         });
         return rabbitTemplate;
     }
 
     @Bean
-    public SimpleMessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory){
+    public SimpleMessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
         container.setQueueNames("queue");              // 监听的队列
@@ -135,12 +143,12 @@ public class SenderConfig {
         container.setMessageListener((ChannelAwareMessageListener) (message, channel) -> {      //消息处理
             System.out.println("====接收到消息=====");
             System.out.println(new String(message.getBody()));
-            if(message.getMessageProperties().getHeaders().get("error") == null){
-                channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
+            if (message.getMessageProperties().getHeaders().get("error") == null) {
+                channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
                 System.out.println("消息已经确认");
-            }else {
+            } else {
                 //channel.basicNack(message.getMessageProperties().getDeliveryTag(),false,false);
-                channel.basicReject(message.getMessageProperties().getDeliveryTag(),false);
+                channel.basicReject(message.getMessageProperties().getDeliveryTag(), false);
                 System.out.println("消息拒绝");
             }
 

@@ -16,13 +16,13 @@ public class StreamTest {
      */
     @Test
     public void testSort() {
-        List<Integer> lists = Lists.newArrayList(3,5,1,2,6);
+        List<Integer> lists = Lists.newArrayList(3, 5, 1, 2, 6);
         lists.sort(((o1, o2) -> {
-            if (o1-o2 >0){
+            if (o1 - o2 > 0) {
                 return 1;
-            }else if(o1 == o2){
+            } else if (o1 == o2) {
                 return 0;
-            } else{
+            } else {
                 return -1;
             }
         }));
@@ -33,8 +33,8 @@ public class StreamTest {
      * java8 排序中的Strean流
      */
     @Test
-    public void testStreamSort(){
-        List<Integer> lists = Lists.newArrayList(3,5,1,2,6);
+    public void testStreamSort() {
+        List<Integer> lists = Lists.newArrayList(3, 5, 1, 2, 6);
         /*List<Integer> collect = lists.stream().sorted().collect(Collectors.toList());
         System.out.println(collect);
         collect.sort(Comparator.reverseOrder());
@@ -47,9 +47,9 @@ public class StreamTest {
      * java 过滤
      */
     @Test
-    public void testFilter(){
-        List<Integer> lists = Lists.newArrayList(3,5,1,2,6);
-         List<Integer> collect = lists.stream().filter(one -> one > 3).collect(Collectors.toList());
+    public void testFilter() {
+        List<Integer> lists = Lists.newArrayList(3, 5, 1, 2, 6);
+        List<Integer> collect = lists.stream().filter(one -> one > 3).collect(Collectors.toList());
         System.out.println(collect);
     }
 
@@ -57,17 +57,17 @@ public class StreamTest {
      * java 分组
      */
     @Test
-    public void testGroupByCollect(){
-        List<Integer> lists = Lists.newArrayList(3,5,1,2,6);
+    public void testGroupByCollect() {
+        List<Integer> lists = Lists.newArrayList(3, 5, 1, 2, 6);
         Map<Object, List<Integer>> collect = lists.stream().collect(Collectors.groupingBy((Function<Integer, Object>) integer -> integer > 2));
         System.out.println(collect);
 
-        List<User> users = Lists.newArrayList(new User("1","张三",10),
-                new User("2","李四",20),
-                new User("3","王五", 50),
-                new User("4","赵六",20),
-                new User("5","赵六",20)
-                );
+        List<User> users = Lists.newArrayList(new User("1", "张三", 10),
+                new User("2", "李四", 20),
+                new User("3", "王五", 50),
+                new User("4", "赵六", 20),
+                new User("5", "赵六", 20)
+        );
         // Map<Object, List<User>> groupUser = users.stream().collect(Collectors.groupingBy((Function<User, Object>) user -> user.getId()));
 
         Map<Object, List<User>> groupUser = users.stream().collect(Collectors.groupingBy((Function<User, Object>) user -> user.getuName() + user.getAge()));
@@ -78,8 +78,8 @@ public class StreamTest {
      * 拼接字符串
      */
     @Test
-    public void testJoin(){
-        List<String> lists = Lists.newArrayList("3","5","1","2","6");
+    public void testJoin() {
+        List<String> lists = Lists.newArrayList("3", "5", "1", "2", "6");
         String result = lists.stream().collect(Collectors.joining(", ", "[", "]"));
         System.out.println(result);
     }

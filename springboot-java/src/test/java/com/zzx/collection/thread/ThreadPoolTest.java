@@ -19,7 +19,7 @@ public class ThreadPoolTest {
      * LinkedBlockingQueue;
      * SynchronousQueue;
      */
-    public static void  main(String[] args) {
+    public static void main(String[] args) {
         ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 5, 200,
                 TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
 

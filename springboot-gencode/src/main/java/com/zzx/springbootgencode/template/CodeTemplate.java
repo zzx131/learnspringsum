@@ -16,13 +16,15 @@ public abstract class CodeTemplate {
 
     /**
      * 读取模板文件的内容
+     *
      * @return
      */
-    public String read(){
+    public String read() {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(this.tplPath);
-        String tpl = IoUtil.read(is,"UTF-8");
+        String tpl = IoUtil.read(is, "UTF-8");
         return tpl;
     }
+
     public String getTplName() {
         return tplName;
     }

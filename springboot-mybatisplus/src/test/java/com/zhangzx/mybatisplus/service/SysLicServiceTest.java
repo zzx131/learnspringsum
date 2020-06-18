@@ -26,26 +26,26 @@ public class SysLicServiceTest {
     private SysLicService sysLicService;
 
     /**
-    * @description: 测试查询全部
-    * @author: zhangzexin
-    * @date: 2020/3/12  11:09
-    * @return: void
-    **/
+     * @description: 测试查询全部
+     * @author: zhangzexin
+     * @date: 2020/3/12  11:09
+     * @return: void
+     **/
     @Test
-    public void testSelect(){
+    public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
         List<SysLic> list = sysLicService.list();
         System.out.println(list.toString());
     }
 
     /**
-    * @description: 测试按照实体进行查询
-    * @author: zhangzexin
-    * @date: 2020/3/12  13:23
-    * @return: void
-    **/
+     * @description: 测试按照实体进行查询
+     * @author: zhangzexin
+     * @date: 2020/3/12  13:23
+     * @return: void
+     **/
     @Test
-    public void testByEntity(){
+    public void testByEntity() {
         SysLic sysLic = new SysLic();
         sysLic.setId(1);
         QueryWrapper<SysLic> wrapper = new QueryWrapper<>();
@@ -58,7 +58,7 @@ public class SysLicServiceTest {
      * 测试保存
      */
     @Test
-    public void testSave(){
+    public void testSave() {
         SysLic sysLic = new SysLic();
         sysLic.setPublicStorePwd("1234");
         sysLic.setPrivateStorePwd("5678");
@@ -80,7 +80,7 @@ public class SysLicServiceTest {
         System.out.println(list.size());
     }
 
-    public void testUpdate(){
+    public void testUpdate() {
 
     }
 

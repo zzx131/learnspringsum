@@ -3,18 +3,24 @@ package com.zzx.collection.string;
 import org.junit.Test;
 
 public class StringTest {
-    String s ;
+    String s;
 
     @Test
-    public void testString(){
-        int i = 5/3;
+    public void testString() {
+        int i = 5 / 3;
         System.out.println(i);
     }
 
     @Test
-    public void testSubString(){
+    public void testSubString() {
         String file = "E:/keystore/publickeyStore.jks";
-        String fileName = file.substring(file.lastIndexOf("/")+1);
+        String fileName = file.substring(file.lastIndexOf("/") + 1);
         System.out.println(fileName);
+    }
+
+    @Test
+    public void getByte() {
+        byte[] bytes = "nq1poah0izfirxz8".getBytes();
+        System.out.println(bytes);
     }
 }

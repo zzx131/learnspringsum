@@ -1,4 +1,5 @@
 package com.zzx.shiro.config;
+
 import com.zzx.shiro.shiro.CustomRealm;
 import com.zzx.shiro.shiro.filter.CustomFormAuthenticationFilter;
 import org.apache.shiro.mgt.SecurityManager;
@@ -54,13 +55,13 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         // 配置自定义过滤器
         Map<String, Filter> filterMap = shiroFilterFactoryBean.getFilters();
-        filterMap.put("authc",customFormAuthenticationFilter());
+        filterMap.put("authc", customFormAuthenticationFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
         return shiroFilterFactoryBean;
     }
 
     @Bean
-    public CustomFormAuthenticationFilter customFormAuthenticationFilter(){
+    public CustomFormAuthenticationFilter customFormAuthenticationFilter() {
         CustomFormAuthenticationFilter customFormAuthenticationFilter = new CustomFormAuthenticationFilter();
         customFormAuthenticationFilter.setUsernameParam("username");
         customFormAuthenticationFilter.setPasswordParam("password");

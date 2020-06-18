@@ -16,7 +16,7 @@ public class CglibTest {
         //设置回调：对于代理类上所有方法的调用，都会调用CallBack，而Callback则需要实现intercept()方法进行拦
         enhancer.setCallback(sqlFacadeCglib);
         // 创建动态代理类对象并返回
-        SqlService sqlServiceProxy = (SqlService)enhancer.create();
+        SqlService sqlServiceProxy = (SqlService) enhancer.create();
         // 调用
         sqlServiceProxy.executeSql1();
         System.out.println();

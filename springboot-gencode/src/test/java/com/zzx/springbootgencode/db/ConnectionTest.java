@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 public class ConnectionTest {
     @Test
-    public void getConnect(){
+    public void getConnect() {
         Connection connection = DbConnection.getConnection();
         System.out.println(connection);
     }

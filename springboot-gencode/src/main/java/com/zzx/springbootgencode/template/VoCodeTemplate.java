@@ -1,7 +1,7 @@
 package com.zzx.springbootgencode.template;
 
 public class VoCodeTemplate extends CodeTemplate {
-    public VoCodeTemplate(){
+    public VoCodeTemplate() {
         this.tplName = "VO模板";
         this.tplPath = "templates/Vo.tpl";
         this.fileTag = "Vo";

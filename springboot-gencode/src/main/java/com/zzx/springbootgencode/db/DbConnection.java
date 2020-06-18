@@ -7,13 +7,14 @@ import java.sql.SQLException;
 public class DbConnection {
     /**
      * 获取数据库的连接
+     *
      * @return
      */
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection connection = null;
         YamlDbProperties yamlDbProperties = YamlDbProperties.getValue();
         try {
-           connection= DriverManager.getConnection(yamlDbProperties.getUrl(),yamlDbProperties.getUsername(),yamlDbProperties.getPassword());
+            connection = DriverManager.getConnection(yamlDbProperties.getUrl(), yamlDbProperties.getUsername(), yamlDbProperties.getPassword());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -22,9 +23,10 @@ public class DbConnection {
 
     /**
      * 关闭连接
+     *
      * @param connection
      */
-    public static void CloseConn(Connection connection){
+    public static void CloseConn(Connection connection) {
         try {
             connection.close();
         } catch (SQLException e) {

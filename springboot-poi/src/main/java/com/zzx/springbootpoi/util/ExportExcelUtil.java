@@ -17,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public class ExportExcelUtil{
+public class ExportExcelUtil {
 
     public static XSSFWorkbook getXSSFWorkbook() {
         XSSFWorkbook xssf_w_book = new XSSFWorkbook();
@@ -34,15 +34,17 @@ public class ExportExcelUtil{
         }
         return os;
     }
+
     /**
      * 导出excel
+     *
      * @param title
      * @param pojoClass
      * @param dataSet
      */
     public static XSSFWorkbook exportExcel(String title,
-                                   Class<?> pojoClass,
-                                   Collection<?> dataSet
+                                           Class<?> pojoClass,
+                                           Collection<?> dataSet
     ) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         XSSFWorkbook xssfWorkbook = getXSSFWorkbook();
         XSSFSheet xssfSheet = xssfWorkbook.createSheet(title);
@@ -84,7 +86,7 @@ public class ExportExcelUtil{
                     }
                     Method getMergeFlag = pojoClass.getMethod(mergeFlag, new Class[]{});
                     mergeFlagList.add(getMergeFlag);
-                }else {
+                } else {
                     mergeFlagList.add(null);
                 }
             }
@@ -149,7 +151,7 @@ public class ExportExcelUtil{
                         if (!poiModel.getContent().equals(mergeValue)) {
                             // 合并单元格必须是2个或以上
                             if (poiModel.getRowIndex() != (index - 1)) {
-                                CellRangeAddress cra=new CellRangeAddress(poiModel.getRowIndex(), index - 1, k, k);
+                                CellRangeAddress cra = new CellRangeAddress(poiModel.getRowIndex(), index - 1, k, k);
                                 xssfSheet.addMergedRegion(cra);
                                 xssfSheet.getRow(poiModel.getRowIndex()).getCell(k).setCellStyle(cellStyle);
                             }
@@ -160,7 +162,7 @@ public class ExportExcelUtil{
                             // 最后一行无法在进行比较，直接合并
                             if (index == dataSet.size()) {
                                 if (poiModel.getRowIndex() != index) {
-                                    CellRangeAddress cra=new CellRangeAddress(poiModel.getRowIndex(), index, k, k);
+                                    CellRangeAddress cra = new CellRangeAddress(poiModel.getRowIndex(), index, k, k);
                                     xssfSheet.addMergedRegion(cra);
                                     xssfSheet.getRow(poiModel.getRowIndex()).getCell(k).setCellStyle(cellStyle);
                                 }

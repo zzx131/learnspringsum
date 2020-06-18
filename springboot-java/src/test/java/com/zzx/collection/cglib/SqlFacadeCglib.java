@@ -15,6 +15,7 @@ public class SqlFacadeCglib implements MethodInterceptor {
     public SqlFacadeCglib(Object target) {
         this.target = target;
     }
+
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         // 开始执行时间
@@ -23,7 +24,7 @@ public class SqlFacadeCglib implements MethodInterceptor {
         Object result = methodProxy.invokeSuper(o, objects);
         // 执行结束
         Long endTime = System.currentTimeMillis();
-        System.out.println(target.getClass().getName()+"执行executeSql耗时"+(endTime-startTime)+"ms");
+        System.out.println(target.getClass().getName() + "执行executeSql耗时" + (endTime - startTime) + "ms");
         return result;
     }
 }

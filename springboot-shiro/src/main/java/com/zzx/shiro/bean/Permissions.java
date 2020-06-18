@@ -4,7 +4,7 @@ public class Permissions {
     private String id;
     private String permissionsName;
 
-    public Permissions(String id,String permissionsName){
+    public Permissions(String id, String permissionsName) {
         this.id = id;
         this.permissionsName = permissionsName;
     }

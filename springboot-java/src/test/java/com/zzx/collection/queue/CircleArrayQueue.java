@@ -8,7 +8,7 @@ public class CircleArrayQueue {
     private int maxSize = 4;// 队列最大长度
     public int[] array = new int[maxSize]; // 数组队列
 
-    public CircleArrayQueue(){
+    public CircleArrayQueue() {
     }
 
     /**
@@ -67,6 +67,7 @@ public class CircleArrayQueue {
 
     /**
      * 数组中有多少个有效的数据
+     *
      * @return
      */
     public int size() {
@@ -89,9 +90,10 @@ public class CircleArrayQueue {
 
     /**
      * 显示头部元素
+     *
      * @return
      */
-    public int headQueue(){
+    public int headQueue() {
         if (isEmpty()) {
             throw new RuntimeException("队列为空，不能取数据");
         }
@@ -102,7 +104,7 @@ public class CircleArrayQueue {
      * 做环形队列
      */
     @Test
-    public void testMain(){
+    public void testMain() {
         this.addQueue(10);
         this.addQueue(20);
         this.addQueue(30);
@@ -110,7 +112,7 @@ public class CircleArrayQueue {
         int queue = this.getQueue();
         System.out.println(queue);
         this.showQueue();
-        System.out.println("头部元素"+ this.headQueue());
+        System.out.println("头部元素" + this.headQueue());
         this.addQueue(40);
         this.showQueue();
 

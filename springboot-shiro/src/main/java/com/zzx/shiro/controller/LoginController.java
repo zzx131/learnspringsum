@@ -42,8 +42,9 @@ public class LoginController {
         }
         return "login success";
     }
+
     //注解验角色和权限
-    @RequiresRoles(value={"T1","T2"},logical = Logical.OR)
+    @RequiresRoles(value = {"T1", "T2"}, logical = Logical.OR)
     @RequiresPermissions("add")
     @RequestMapping("/index")
     public String index() {
@@ -51,7 +52,7 @@ public class LoginController {
     }
 
     @GetMapping("/getSession")
-    public void getSession(){
+    public void getSession() {
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         //这个参数用于判定会话不存在时是否创建新会话。

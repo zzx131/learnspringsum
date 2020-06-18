@@ -9,7 +9,7 @@ import java.util.TreeSet;
 public class SetTest {
 
     @Test
-    public void testHashSet(){
+    public void testHashSet() {
         Set<String> setString = new HashSet<>();
         setString.add("1");
         setString.add("2");
@@ -19,7 +19,7 @@ public class SetTest {
     }
 
     @Test
-    public void testTreeSet(){
+    public void testTreeSet() {
         TreeSet treeSet = new TreeSet();
         treeSet.add(1);
         treeSet.add(2);

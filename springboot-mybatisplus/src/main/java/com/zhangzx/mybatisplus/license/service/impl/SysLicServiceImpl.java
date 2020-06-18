@@ -12,5 +12,5 @@ import org.springframework.stereotype.Service;
  * @Author: zhangzexin
  */
 @Service
-public class SysLicServiceImpl extends ServiceImpl<SysLicMapper, SysLic>  implements SysLicService {
+public class SysLicServiceImpl extends ServiceImpl<SysLicMapper, SysLic> implements SysLicService {
 }

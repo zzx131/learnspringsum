@@ -72,6 +72,7 @@ public class SparseArray {
 
     /**
      * 存盘
+     *
      * @param array
      * @throws IOException
      */
@@ -90,13 +91,14 @@ public class SparseArray {
 
     /**
      * 读盘操作
+     *
      * @throws FileNotFoundException
      */
     @Test
     public void readFile() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("E:/mep.txt"));
         String line;
-        while ((line = bufferedReader.readLine()) != null){
+        while ((line = bufferedReader.readLine()) != null) {
             System.out.println(line.trim());
         }
         bufferedReader.close();

@@ -16,7 +16,7 @@ public class HandleConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public LoginInterceptor loginInterceptor(){
+    public LoginInterceptor loginInterceptor() {
         return new LoginInterceptor();
     }
 }

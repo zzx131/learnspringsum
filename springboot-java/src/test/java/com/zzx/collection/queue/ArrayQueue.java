@@ -27,6 +27,7 @@ public class ArrayQueue {
 
     /**
      * 判断是否为空
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -38,6 +39,7 @@ public class ArrayQueue {
 
     /**
      * 出队
+     *
      * @return
      */
     public int getQueue() {
@@ -59,7 +61,7 @@ public class ArrayQueue {
         this.addQueue(40);
         // 取出队列
         for (int i = 0; i < 4; i++) {
-            System.out.println("取出队列中的值"+this.getQueue());
+            System.out.println("取出队列中的值" + this.getQueue());
         }
     }
 }

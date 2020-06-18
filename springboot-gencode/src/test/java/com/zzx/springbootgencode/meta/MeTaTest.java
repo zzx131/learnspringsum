@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class MeTaTest {
 
     @Test
-    public void getMetaTest(){
-        MetaData.getTableInfo("mysql_persons",new TypeMapping());
+    public void getMetaTest() {
+        MetaData.getTableInfo("mysql_persons", new TypeMapping());
     }
 }

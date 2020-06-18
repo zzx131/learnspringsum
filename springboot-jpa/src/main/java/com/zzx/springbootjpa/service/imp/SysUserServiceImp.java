@@ -13,15 +13,16 @@ import java.util.List;
 public class SysUserServiceImp implements SysUserService {
     @Autowired
     public SysUserDao sysUserDao;
+
     @Override
     public List<SysUser> findAllUser() {
-       return sysUserDao.findAll();
+        return sysUserDao.findAll();
     }
 
     @Override
     @Transactional
     public void saveUser(SysUser sysUser) {
         sysUserDao.save(sysUser);
-        int j =  12/0;
+        int j = 12 / 0;
     }
 }

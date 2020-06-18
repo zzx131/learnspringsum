@@ -9,12 +9,12 @@ public class YamlDbProperties {
     private String username;
     private String password;
 
-    public static YamlDbProperties getValue(){
+    public static YamlDbProperties getValue() {
         YamlDbProperties yamlDbProperties = new YamlDbProperties();
         Yaml yaml = new Yaml();
-        Map<String,Object> ret = yaml.load(YamlDbProperties.class.getClassLoader().getResourceAsStream("application.yml"));
-        Map<String,Object> spring = (Map<String,Object> )ret.get("spring");
-        Map<String,Object> datasource = (Map<String,Object> )spring.get("datasource");
+        Map<String, Object> ret = yaml.load(YamlDbProperties.class.getClassLoader().getResourceAsStream("application.yml"));
+        Map<String, Object> spring = (Map<String, Object>) ret.get("spring");
+        Map<String, Object> datasource = (Map<String, Object>) spring.get("datasource");
 
         String url = String.valueOf(datasource.get("url"));
         String username = String.valueOf(datasource.get("username"));
@@ -25,6 +25,7 @@ public class YamlDbProperties {
         yamlDbProperties.setPassword(password);
         return yamlDbProperties;
     }
+
     public String getUrl() {
         return url;
     }

@@ -22,7 +22,7 @@ public class FileTest {
     @Test
     public void testCreateFile() {
         // 新建实体类
-        File file = new File(dirPath,"son");
+        File file = new File(dirPath, "son");
         System.out.println(file.getPath());
         // 创建文件夹
         if (!file.exists()) {
@@ -64,7 +64,7 @@ public class FileTest {
         for (String one : fileNameList) {
             retuenFileName = this.getCreateFilePath(retuenFileName + "/" + one, createPathList);
         }
-        System.out.println("要创建的文件夹路径 "+createPathList.toString());
+        System.out.println("要创建的文件夹路径 " + createPathList.toString());
         // 开始创建文件夹
         if (createPathList.size() > 0) {
             createPathList.forEach(one -> {
@@ -72,7 +72,7 @@ public class FileTest {
                 File createFile = new File(createPath);
                 if (!createFile.exists()) {
                     boolean flag = createFile.mkdirs();
-                    System.out.println("创建文件夹"+createPath+":"+flag);
+                    System.out.println("创建文件夹" + createPath + ":" + flag);
                 }
             });
         }
@@ -95,14 +95,15 @@ public class FileTest {
 
     /**
      * 测试文件FileWrite类
+     *
      * @throws IOException
      */
     @Test
     public void testFileWrite() throws IOException {
         FileUtil.mkdir("E:/myfile");
         File file = new File("E:/myfile/mynote.txt");
-        FileWriter fileWriter = new FileWriter(file,true);
-       // fileWriter.write("hello word");
+        FileWriter fileWriter = new FileWriter(file, true);
+        // fileWriter.write("hello word");
         fileWriter.append("hello ").append("word ").append(" java");
         System.out.println(fileWriter.getEncoding());
         fileWriter.flush();
@@ -125,7 +126,7 @@ public class FileTest {
      * 测试文件删除
      */
     @Test
-    public void testDelete(){
+    public void testDelete() {
         File file = new File("E:\\myfile\\del.txt");
         boolean flag = file.exists();
         boolean deleteFlag = file.delete();
@@ -134,20 +135,20 @@ public class FileTest {
     }
 
     /**
-    * @description: 测试删除文件夹
-    * @author: zhangzexin
-    * @date: 2020/3/13  16:48
-    * @return: void
-    **/
+     * @description: 测试删除文件夹
+     * @author: zhangzexin
+     * @date: 2020/3/13  16:48
+     * @return: void
+     **/
     @Test
-    public void testDeleteFiles(){
+    public void testDeleteFiles() {
         File f = new File("E:\\myfile");
-        boolean deleteFlag =  FileUtil.del(f);
+        boolean deleteFlag = FileUtil.del(f);
         System.out.println(deleteFlag);
     }
 
     @Test
-    public void testParentFilePath(){
+    public void testParentFilePath() {
         File file = new File("E:/fileParent/fileson");
         System.out.println(file.getParent());
         System.out.println(file.getAbsolutePath());
@@ -155,16 +156,24 @@ public class FileTest {
     }
 
     @Test
-    public void testFileMkdir(){
+    public void testFileMkdir() {
         File file = new File("D:/parent/son/mm");
         FileUtil.mkdir(file);
     }
 
 
     @Test
-    public void testFileMove(){
+    public void testFileMove() {
         // FileUtil.move(new File("D:/parent/1.txt"),new File("D:/parent/keyStore"),true);
-        FileUtil.move(new File("D:/parent/2.txt"),new File("D:/parent/keyStore"),true);
+        FileUtil.move(new File("D:/parent/2.txt"), new File("D:/parent/keyStore"), true);
+    }
+
+    @Test
+    public void readFile() {
+        List<String> strings = FileUtil.readLines(new File("D:/pass.txt"), "UTF-8");
+        strings.forEach(one -> {
+            System.out.println(one);
+        });
     }
 
 }

@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class RoutingConfig {
     // 创建routing队列
-    @Bean(name="rqueuea")
+    @Bean(name = "rqueuea")
     public Queue rQueueA() {
         return new Queue("rqueuea");
     }
 
-    @Bean(name="rqueueb")
+    @Bean(name = "rqueueb")
     public Queue rQueueB() {
         return new Queue("rqueueb");
     }
@@ -25,18 +25,21 @@ public class RoutingConfig {
     DirectExchange directExchange() {
         return new DirectExchange("directExchange");
     }
+
     // 将队列绑定到交换机上
     @Bean
     Binding bindingRouExchangeA(@Qualifier("rqueuea") Queue rqueuea, DirectExchange directExchange) {
         return BindingBuilder.bind(rqueuea).to(directExchange).with("orange");
     }
+
     @Bean
     Binding bindingRouExchangeB(@Qualifier("rqueueb") Queue rqueueb, DirectExchange directExchange) {
-       return  BindingBuilder.bind(rqueueb).to(directExchange).with("black");
+        return BindingBuilder.bind(rqueueb).to(directExchange).with("black");
     }
+
     @Bean
     Binding bindingRouExchangeC(@Qualifier("rqueueb") Queue rqueueb, DirectExchange directExchange) {
-        return  BindingBuilder.bind(rqueueb).to(directExchange).with("green");
+        return BindingBuilder.bind(rqueueb).to(directExchange).with("green");
     }
 
 

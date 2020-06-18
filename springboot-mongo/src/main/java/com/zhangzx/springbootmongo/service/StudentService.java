@@ -11,7 +11,7 @@ public class StudentService {
     @Resource
     private StudentRepository repository;
 
-    public void save(Student student){
+    public void save(Student student) {
         repository.save(student);
     }
 }

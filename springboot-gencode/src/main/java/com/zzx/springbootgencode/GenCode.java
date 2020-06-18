@@ -18,7 +18,7 @@ public class GenCode {
     // 模板引擎
     protected SpringTemplateEngine springTemplateEngine;
 
-    public GenCode(GenCodeConfiguration configuration){
+    public GenCode(GenCodeConfiguration configuration) {
         this.configuration = configuration;
         this.initTemplateEngine();
     }
@@ -26,7 +26,7 @@ public class GenCode {
     /**
      * 初始化模板
      */
-    private void initTemplateEngine(){
+    private void initTemplateEngine() {
         springTemplateEngine = new SpringTemplateEngine();
         IDialect dialect = new SpringStandardDialect();
         springTemplateEngine.setDialect(dialect);
@@ -40,12 +40,13 @@ public class GenCode {
 
     /**
      * 命令处理
+     *
      * @param tableName
      * @param command
      * @param codeOutput
      */
-    public void process(String tableName, Command command, CodeOutput codeOutput){
-        Table tableInfo = MetaData.getTableInfo(tableName,configuration.getTypeMapping());
-        command.execute(tableInfo,springTemplateEngine,codeOutput);
+    public void process(String tableName, Command command, CodeOutput codeOutput) {
+        Table tableInfo = MetaData.getTableInfo(tableName, configuration.getTypeMapping());
+        command.execute(tableInfo, springTemplateEngine, codeOutput);
     }
 }

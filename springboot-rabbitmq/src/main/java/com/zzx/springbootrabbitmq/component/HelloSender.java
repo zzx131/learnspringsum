@@ -31,24 +31,25 @@ public class HelloSender {
         rabbitTemplate.convertAndSend("queue", user);
     }
     // ------------------------------------------------------
+
     /**
      * work 模式
      */
-    public void workSend(){
-        List<User> users = Arrays.asList(new User("张三","123456"),
-                new User("李四","123456"),
-                new User("王五","123456"));
-        users.forEach(one -> rabbitTemplate.convertAndSend("workQueue",one));
+    public void workSend() {
+        List<User> users = Arrays.asList(new User("张三", "123456"),
+                new User("李四", "123456"),
+                new User("王五", "123456"));
+        users.forEach(one -> rabbitTemplate.convertAndSend("workQueue", one));
     }
 
     /**
      * routing 模式
      */
-    public void routingSend(){
-        rabbitTemplate.convertAndSend("directExchange","orange",new User("张三","123456"));
+    public void routingSend() {
+        rabbitTemplate.convertAndSend("directExchange", "orange", new User("张三", "123456"));
 
-        rabbitTemplate.convertAndSend("directExchange","black",new User("李四","123456"));
-        rabbitTemplate.convertAndSend("directExchange","green",new User("王五","123456"));
+        rabbitTemplate.convertAndSend("directExchange", "black", new User("李四", "123456"));
+        rabbitTemplate.convertAndSend("directExchange", "green", new User("王五", "123456"));
     }
 
     /**

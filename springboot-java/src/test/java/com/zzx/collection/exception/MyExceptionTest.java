@@ -7,9 +7,10 @@ import java.io.IOException;
 public class MyExceptionTest {
     /**
      * io异常
+     *
      * @throws IOException
      */
-    public void testThrowIoException() throws IOException{
+    public void testThrowIoException() throws IOException {
         System.out.println("hello testThrowIoException");
         throw new IOException();
     }
@@ -17,12 +18,12 @@ public class MyExceptionTest {
     /**
      * 运行时异常
      */
-    public void testThrowRunTimeException(){
+    public void testThrowRunTimeException() {
         System.out.println("testThrow");
         throw new RuntimeException();
     }
 
-    public void testMyException() throws MyException{
+    public void testMyException() throws MyException {
         throw new MyException();
     }
 
@@ -32,7 +33,7 @@ public class MyExceptionTest {
         // 可以捕捉 runTimeException异常，但是并不需要 throws
         try {
             myExceptionTest.testThrowRunTimeException();
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
         }
         // ioException 异常处理

@@ -14,7 +14,7 @@ public class UserServiceTest {
     private SysUserService sysUserService;
 
     @Test
-    public void testSave(){
+    public void testSave() {
         SysUser sysUser = new SysUser();
         sysUser.setName("李四");
         sysUser.setBrithday(new Date());
@@ -23,8 +23,8 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         List<SysUser> allUser = sysUserService.findAllUser();
-        allUser.forEach(one-> System.out.println(one.toString()));
+        allUser.forEach(one -> System.out.println(one.toString()));
     }
 }

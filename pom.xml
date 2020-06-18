@@ -262,6 +262,7 @@
         <module>springboot-poi</module>
         <module>springboot-rabbitmq</module>
         <module>springboot-shiro</module>
+        <module>springboot-swagger2</module>
     </modules>
 
 </project>
