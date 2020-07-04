@@ -59,9 +59,15 @@
         </dependency>
         <!-- vue -->
         <dependency>
-            <groupId>org.webjars.bower</groupId>
+            <groupId>org.webjars.npm</groupId>
             <artifactId>vue</artifactId>
-            <version>2.6.9</version>
+            <version>2.6.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>element-ui</artifactId>
+            <version>2.13.2</version>
         </dependency>
 
         <dependency>
