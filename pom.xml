@@ -263,7 +263,9 @@
         <module>springboot-rabbitmq</module>
         <module>springboot-shiro</module>
         <module>springboot-swagger2</module>
+        <module>springboot-security</module>
         <module>design</module>
+        <module>spring5</module>
     </modules>
 
 </project>
