@@ -34,7 +34,7 @@
         <plexus-container-default.version>1.0-alpha-9-stable-1</plexus-container-default.version>
         <commons-lang.version>2.6</commons-lang.version>
         <plexus-component-annotations.version>1.5.5</plexus-component-annotations.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <h2.version>1.4.197</h2.version>
         <tpf-license-keytool.version>1.0.0</tpf-license-keytool.version>
     </properties>
